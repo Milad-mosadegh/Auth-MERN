@@ -12,7 +12,7 @@ require('dotenv').config()
 
 var port = process.env.PORT || '8000';
 
-// var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 
@@ -36,9 +36,8 @@ mongoose.connect(process.env.MONGODBURL, {
   )
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'hbs');
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
 app.use(cors());
 
@@ -53,7 +52,7 @@ app.use(expressSession(
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use("/images", express.static('images'));
 
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
