@@ -49,7 +49,7 @@ app.use(expressValidator()); // Should be after the Parsers and will be availabl
 app.use(expressSession(
   { secret: 'max', saveUninitialized: false, resave: false })
 );
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use("/images", express.static('images'));
 
 app.use('/', indexRouter);
@@ -70,6 +70,10 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+})
 
 app.listen(port, () => {
   console.log(`Server run on por ${port}`);
