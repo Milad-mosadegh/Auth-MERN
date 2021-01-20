@@ -52,7 +52,7 @@ app.use(expressSession(
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use("/images", express.static('images'));
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
