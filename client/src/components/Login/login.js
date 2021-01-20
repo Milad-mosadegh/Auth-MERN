@@ -32,6 +32,7 @@ function LoginForm() {
                                 alert(`Login Successfully`)
                                 window.location.reload()
                                 setResMsg(response.data)
+                                history.push('/')
 
                             } else {
                                 sessionStorage.removeItem("uname", "")
