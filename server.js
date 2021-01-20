@@ -12,7 +12,7 @@ require('dotenv').config()
 
 var port = process.env.PORT || '8000';
 
-var indexRouter = require('./routes/index');
+// var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 
